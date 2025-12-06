@@ -9,22 +9,21 @@ RUN apt-get update && apt-get install -y \
     build-essential \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy requirements and install dependencies
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+# Copy pyproject.toml and install dependencies
+COPY pyproject.toml .
+RUN pip install --no-cache-dir -e .
 
 # Download spacy model
 RUN python -m spacy download en_core_web_lg
 
-# Copy all Python files
-COPY bigram_model.py .
-COPY lstm_model.py .
-COPY gpt2_model.py .
-COPY word_embedding.py .
-COPY main_embedding.py .
+# Copy app folder with all Python files
+COPY app/ ./app/
 
-# Create models directory
+# Create models directory (will be mounted as volume)
 RUN mkdir -p models
 
 # Expose port
 EXPOSE 8000
+
+# Run the application
+CMD ["uvicorn", "app.main_embedding:app", "--host", "0.0.0.0", "--port", "8000"]
