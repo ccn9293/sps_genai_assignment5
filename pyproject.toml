@@ -1,12 +1,20 @@
 [project]
 name = "sps-genai"
-version = "0.1.0"
-description = "Add your description here"
-readme = "README.md"
+version = "3.0.0"
+description = "Multi-model text generation API with Bigram, LSTM, and fine-tuned GPT-2"
 requires-python = ">=3.12"
 dependencies = [
-    "fastapi[standard]>=0.119.1",
-    "pillow>=12.0.0",
-    "torch>=2.9.0",
-    "torchvision>=0.24.0",
+    "fastapi>=0.115.6",
+    "uvicorn>=0.34.0",
+    "torch>=2.5.1",
+    "transformers>=4.46.3",
+    "datasets>=3.2.0",
+    "accelerate>=1.2.1",
+    "spacy>=3.8.2",
+    "requests>=2.32.3",
+    "pydantic>=2.10.3",
 ]
+
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
