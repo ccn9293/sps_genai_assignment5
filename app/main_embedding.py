@@ -31,7 +31,7 @@ bigram_model = BigramModel(corpus)
 
 # LSTM model (Module 7) - load only if checkpoint exists
 lstm_model = None
-LSTM_MODEL_PATH = '../models/lstm_checkpoint.pth'
+LSTM_MODEL_PATH = 'models/lstm_checkpoint.pth'
 
 try:
     if os.path.exists(LSTM_MODEL_PATH):
@@ -45,7 +45,7 @@ except Exception as e:
 
 # GPT-2 model (Assignment 5) - load only if fine-tuned model exists
 gpt2_model = None
-GPT2_MODEL_PATH = '../models/gpt2_finetuned'
+GPT2_MODEL_PATH = 'models/gpt2_finetuned'
 
 try:
     if os.path.exists(GPT2_MODEL_PATH):
@@ -280,3 +280,4 @@ def compare_models():
             }
         ]
     }
+
