@@ -1,10 +1,10 @@
 from typing import Union
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from bigram_model import BigramModel
-from word_embedding import WordEmbedding
-from lstm_model import LSTMTextGenerator
-from gpt2_model import GPT2TextGenerator
+from .bigram_model import BigramModel
+from .word_embedding import WordEmbedding
+from .lstm_model import LSTMTextGenerator
+from .gpt2_model import GPT2TextGenerator
 import os
 
 app = FastAPI(
